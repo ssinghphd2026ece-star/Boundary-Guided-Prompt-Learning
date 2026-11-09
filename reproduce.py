@@ -38,7 +38,7 @@ def split_coco(args):
              'annotations':[x for x in data['annotations'] if x['image_id'] in chosen]}
         write_json(out,Path(args.out)/f'{name}.json')
     write_json({'seed':args.seed,'train_ids':ids[:789],'val_ids':ids[789:]},Path(args.out)/'manifest.json')
-    print('Generated a NEW split; manuscript original IDs are unavailable.')
+    print('Generated a NEW split.')
 
 def resolve_image(root, info):
     p = Path(info['file_name'])
@@ -71,7 +71,6 @@ class SSDD(Dataset):
         img=cv2.imread(str(resolve_image(self.root,info)),cv2.IMREAD_GRAYSCALE)
         if img is None: raise FileNotFoundError(info['file_name'])
         masks=get_masks(self.coco,info); h,w=img.shape
-        # Manuscript does not publish the exact training percentile statistics.
         # Explicit per-image 1st/99th percentile scaling is a documented approximation.
         lo,hi=np.percentile(img,[1,99]); x=np.clip((img.astype(np.float32)-lo)/max(hi-lo,1),0,1)
         x=cv2.resize(x,(SIZE,SIZE),interpolation=cv2.INTER_LINEAR)
