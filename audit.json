@@ -1,0 +1,12 @@
+{
+  "archive_sha256": "c1e871740ff2bcefbaed5c9d1844ac61f2f0204c78243aed5a2c9d2c20f0b8d8",
+  "development_images": 928,
+  "training_images": 789,
+  "validation_images": 139,
+  "test_images": 232,
+  "inshore_images": 46,
+  "offshore_images": 186,
+  "ship_category_id": 0,
+  "train_annotations": 2041,
+  "test_annotations": 546
+}
