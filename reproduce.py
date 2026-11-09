@@ -1,4 +1,4 @@
-"""Independent SAR-BAP-SAM implementation; see README for limitations."""
+"""Independent SAR-BAP-SAM implementation."""
 import argparse, copy, json, math, random
 from pathlib import Path
 import cv2
